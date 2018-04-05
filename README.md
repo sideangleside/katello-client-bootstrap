@@ -1,11 +1,11 @@
 # Foreman Bootstrap Script
 bootstrap Script for migrating existing running systems to Foreman with the Katello plugin
 
-- [Overview](#Overview)
-- [What does the Script do?](#What does the Script do?)
-  - [Red Hat Classic & Satellite 5](#Red Hat Classic & Satellite 5)
-  - [System already registered to a Foreman + Katello server / Capsule (--new-capsule)](#System already registered to a Foreman + Katello server / Capsule (--new-capsule))
-  - [System not registered to any Red Hat Systems Management Platform](#System not registered to any Red Hat Systems Management Platform)
+- [Overview](#overview)
+- [What does the Script do?](#what-does-the-script-do?)
+  - [Red Hat Classic & Satellite 5](#Red-Hat-Classic---Satellite-5)
+  - [System already registered to a Foreman + Katello server / Capsule](#System-already-registered-to-a-Foreman---Katello-server---Capsule)
+  - [System not registered to any Red Hat Systems Management Platform](#System-not-registered-to-any-Red-Hat-Systems-Management-Platform)
 
 
 # Overview
