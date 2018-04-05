@@ -1,6 +1,13 @@
 # Foreman Bootstrap Script
 bootstrap Script for migrating existing running systems to Foreman with the Katello plugin
 
+- [Overview](#Overview)
+- [What does the Script do?](#What does the Script do?)
+  - [Red Hat Classic & Satellite 5](#Red Hat Classic & Satellite 5)
+  - [System already registered to a Foreman + Katello server / Capsule (--new-capsule)](#System already registered to a Foreman + Katello server / Capsule (--new-capsule))
+  - [System not registered to any Red Hat Systems Management Platform](#System not registered to any Red Hat Systems Management Platform)
+
+
 # Overview
 
 * The goal is to take a Red Hat Enterprise Linux (RHEL) client and get it registered to Foreman
@@ -36,7 +43,7 @@ external) of one Katello installation by using the `--new-capsule` option.
 * Update the Puppet configuration for the system to point to the right capsule (optional)
 * Restart Puppet and call for the user to go sign the CSR
 
-## System not registered to any Red Hat Systems Management Platform:
+## System not registered to any Red Hat Systems Management Platform
 
 * Make an API call to Foreman to create the Foreman Host associated with the user specified Org/Location
 * Install the Katello consumer RPM
@@ -150,7 +157,7 @@ This usage leverages the `--skip foreman` switch, which does not require usernam
  - the `--skip foreman` switch implies `--skip puppet`
  - When using `--skip foreman`, it is expected that the organization specified  (via `--organization|-o`) is specified via **LABEL**, not **NAME**.
 
-Option 1: using the `--skip foreman` option. 
+Option 1: using the `--skip foreman` option.
 
 ~~~
 # ./bootstrap.py -s foreman.example.com \
@@ -159,7 +166,7 @@ Option 1: using the `--skip foreman` option.
     --skip foreman
 ~~~
 
-Option 2 : using the `--content-only` option. This option exists as an alias to `--skip foreman`. 
+Option 2 : using the `--content-only` option. This option exists as an alias to `--skip foreman`.
 
 ~~~
 # ./bootstrap.py -s foreman.example.com \
@@ -551,7 +558,7 @@ Options:
 
 ## FIPS support
 
-On systems with FIPS enabled (where `/proc/sys/crypto/fips_enabled == 1`), algorithms such as MD5 are disallowed. Bootstrap will configure `digest_algorithm = sha256` in puppet.conf to allow successful puppet runs. However, the signing algorithm **must** match on the Puppet Master. It is expected that the Puppet Masters are configured with the **same** algorithm prior to running `bootstrap.py` on the clients. 
+On systems with FIPS enabled (where `/proc/sys/crypto/fips_enabled == 1`), algorithms such as MD5 are disallowed. Bootstrap will configure `digest_algorithm = sha256` in puppet.conf to allow successful puppet runs. However, the signing algorithm **must** match on the Puppet Master. It is expected that the Puppet Masters are configured with the **same** algorithm prior to running `bootstrap.py` on the clients.
 
 # Ansible integration
 
